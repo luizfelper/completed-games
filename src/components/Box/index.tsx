@@ -1,5 +1,5 @@
-import React from "react";
+import BoxStyle from "./style";
 
-export default function Box() {
-  return <div>Caixa para texto simples</div>;
+export default function Box({ children, ...props }: any) {
+  return <BoxStyle>{children}</BoxStyle>;
 }

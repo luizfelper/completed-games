@@ -1,7 +1,12 @@
 import "./App.css";
+import Box from "./components/Box";
 
 function App() {
-  return <div className="App">Olá Mundo!</div>;
+  return (
+    <>
+      <Box>Teste</Box>
+    </>
+  );
 }
 
 export default App;
