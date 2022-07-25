@@ -1,5 +1,10 @@
-import BoxStyle from "./style";
+import { BoxStyle, BoxStyleTitle } from "./style";
 
 export default function Box({ children, ...props }: any) {
-  return <BoxStyle>{children}</BoxStyle>;
+  return (
+    <BoxStyle>
+      <BoxStyleTitle>{props.title}</BoxStyleTitle>
+      <span>{children}</span>
+    </BoxStyle>
+  );
 }

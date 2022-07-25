@@ -4,7 +4,7 @@ import Box from "./components/Box";
 function App() {
   return (
     <>
-      <Box>Teste</Box>
+      <Box title="Título">Teste</Box>
     </>
   );
 }
