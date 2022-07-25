@@ -7,10 +7,11 @@ export const BoxStyle = styled.div`
   margin: 0 auto;
   padding: 0.5em;
   border-radius: 5px;
-  max-width: 30%;
+  width: 40%;
 `;
 
 export const BoxStyleTitle = styled.h1`
+  font-size: 1em;
   text-align: center;
   color: grey;
 `;
