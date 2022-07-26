@@ -3,6 +3,7 @@ import "./App.css";
 import Box from "./components/Box";
 import Container from "./components/Container";
 import { Button } from "antd";
+import { Formik } from "formik";
 
 interface jogos {
   nome: string;
@@ -32,9 +33,62 @@ function App() {
   return (
     <>
       <Container>
+        <Box>
+          <Formik
+            initialValues={{
+              titulo: "Homem Aranha",
+              descricao: "O primeiro jogo da Márvel",
+            }}
+            onSubmit={(values, { setSubmitting }) => {
+              setTimeout(() => {
+                alert(JSON.stringify(values, null, 2));
+                setSubmitting(false);
+              }, 400);
+            }}
+          >
+            {({
+              values,
+              errors,
+              touched,
+              handleChange,
+              handleBlur,
+              handleSubmit,
+              isSubmitting,
+              /* and other goodies */
+            }) => (
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  name="titulo"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.titulo}
+                  placeholder="Nome do Jogo"
+                />
+                {errors.titulo && touched.titulo && errors.titulo}
+                <input
+                  type="text"
+                  name="descricao"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.descricao}
+                  placeholder="Descrição do Jogo"
+                />
+                {errors.descricao && touched.descricao && errors.descricao}
+                <button type="submit" disabled={isSubmitting}>
+                  Enviar
+                </button>
+              </form>
+            )}
+          </Formik>
+        </Box>
+
         <Box title="Jogos a zerar">
           {jogosaZerar.map((jogo: jogos) => (
-            <p>{jogo.nome}</p>
+            <>
+              <p>{jogo.nome}</p>
+              {/* <p>{jogo.descricao}</p> */}
+            </>
           ))}
           <Button type="primary" size="large">
             Adicionar
